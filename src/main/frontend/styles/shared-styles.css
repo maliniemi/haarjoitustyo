@@ -1,0 +1,37 @@
+/* shared-styles.css */
+
+:root {
+    --lumo-primary-color: hsl(210, 100%, 50%);
+    --lumo-font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+vaadin-login-form {
+    background-color: var(--lumo-primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.fancy-nav {
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 6px;
+    font-weight: 600;
+    color: #00796b;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.fancy-nav:hover {
+    background-color: #b2dfdb;
+    color: black;
+    cursor: pointer;
+}
+
