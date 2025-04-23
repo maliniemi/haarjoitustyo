@@ -1,0 +1,34 @@
+Sovelluksen Käyttö:
+
+Etusivu: Sovelluksen etusivulta käyttäjä voi valita kielen (suomi/englanti) ja siirtyä muihin osioihin.
+
+Henkilöt: Sovelluksessa voi tarkastella henkilötietoja, kuten nimiä ja osoitteita. Tässä näkymässä voit myös suodattaa henkilöitä nimellä ja osoitteella.
+
+Profiilit ja Mittaukset: Voit tarkastella kunkin henkilön profiileja ja mittauksia.
+
+
+Käyttöliittymä
+Kielivalinta:
+
+Sivun oikeassa yläkulmassa on kielivalitsin, jonka avulla käyttäjä voi valita suomen tai englannin kielen.
+
+Henkilöiden Hallinta:
+
+Voit suodattaa henkilöitä nimellä ja osoitteella käyttämällä suodattimia.
+
+Listassa näkyy kunkin henkilön ID, nimi ja osoite.
+
+
+
+Mittaukset ja Profiilit:
+
+Profiilissa voi olla lisätietoja henkilöistä, ja mittaukset liittyvät henkilöihin ajan mukaan.
+
+Mittausnäytössä näkyvät tiedot, kuten tyyppi, arvo ja päivämäärä.
+
+
+
+Käyttöoikeudet ja Turvallisuus
+
+
+Sovelluksen sisäänkirjautuminen on suojattu käyttäjäprofiililla ja roolitarkistuksilla.
