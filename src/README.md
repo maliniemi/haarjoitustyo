@@ -11,7 +11,7 @@ Sovellus, jossa hallitaan henkilöitä, mittauksia ja käyttäjiä. Mukana on ro
 | Käyttäjä | user         | userpass  |
 
 ## Käynnistys
-1. Aja SQL-tiedosto tietokantaan
+1. Aja MYSQL-tiedosto tietokantaan
 2. Käynnistä Spring Boot -sovellus
 3. Kirjaudu selaimella osoitteessa `http://localhost:8080`
 
