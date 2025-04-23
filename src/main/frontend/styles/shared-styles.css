@@ -1,25 +1,16 @@
-/* shared-styles.css */
-
 :root {
-    --lumo-primary-color: hsl(210, 100%, 50%);
-    --lumo-font-family: 'Segoe UI', sans-serif;
+    --lumo-primary-color: #90caf9;
+    --lumo-base-color: #d3cdcd;
+    --lumo-body-text-color: #080000;
 }
 
-body {
-    background: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-vaadin-login-form {
-    background-color: var(--lumo-primary-color);
-    padding: 1rem;
-    border-radius: 8px;
+.vaadin-horizontal-layout {
+    background-color:rgb(147 139 139) ;
 }
 
 .fancy-nav {
-    background-color: #e0f7fa;
+    background-color: #080000;
     border-radius: 8px;
     padding: 8px 12px;
     margin: 6px;

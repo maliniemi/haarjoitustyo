@@ -9,11 +9,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
+import jakarta.annotation.security.PermitAll;
 
 import java.util.Locale;
 
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Etusivu")
+@PermitAll
 public class EtusivuView extends VerticalLayout {
 
     public EtusivuView() {
@@ -44,8 +46,8 @@ public class EtusivuView extends VerticalLayout {
         HorizontalLayout topBar = new HorizontalLayout(languageSelector);
         topBar.setWidthFull();
         topBar.setPadding(true);
-        topBar.setJustifyContentMode(JustifyContentMode.END); // Oikealle
-        add(topBar); // Lisää yläpalkki näkymään
+        topBar.setJustifyContentMode(JustifyContentMode.END);
+        add(topBar);
 
         // Haetaan nykyinen kieli sessiosta
         Locale currentSessionLocale = VaadinSession.getCurrent().getAttribute(Locale.class);

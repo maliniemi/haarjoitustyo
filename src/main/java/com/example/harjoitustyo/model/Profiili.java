@@ -14,6 +14,4 @@ public class Profiili {
     @OneToOne
     @JoinColumn(name = "henkilo_id")
     private Henkilo henkilo;
-
-    // Getterit ja setterit
 }

@@ -7,10 +7,10 @@ import com.vaadin.flow.router.Route;
 import jakarta.annotation.security.RolesAllowed;
 
 @Route(value = "user", layout = MainLayout.class)
-@PageTitle("Käyttäjä­sivu")
+@PageTitle("Käyttäjäsivu")
 @RolesAllowed({"USER", "ADMIN"})
 public class UserView extends VerticalLayout {
     public UserView() {
-        add(new H2("Tervetuloa käyttäjälle!"));
+        add(new H2("Tervetuloa käyttäjäsivulle!"));
     }
 }
