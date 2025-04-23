@@ -1,29 +1,66 @@
 package com.example.harjoitustyo.views;
 
-import com.example.harjoitustyo.views.MainLayout;
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.VaadinSession;
+
+import java.util.Locale;
 
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Etusivu")
 public class EtusivuView extends VerticalLayout {
 
     public EtusivuView() {
-        setSizeFull(); // ottaa kaiken korkeuden
+        setSizeFull();
         setPadding(false);
         setSpacing(false);
 
-        // Välialue
+        // Kielivalitsin
+        ComboBox<Locale> languageSelector = new ComboBox<>();
+        languageSelector.setLabel("Valitse kieli / Select language");
+        languageSelector.setItems(Locale.ENGLISH, new Locale("fi"));
+        languageSelector.setItemLabelGenerator(locale -> locale.getDisplayLanguage(locale));
+
+        // Haetaan nykyinen kieli sessiosta, oletuksena suomi
+        Locale currentLocale = VaadinSession.getCurrent().getAttribute(Locale.class);
+        if (currentLocale == null) {
+            currentLocale = new Locale("fi"); // Oletuksena suomi
+            VaadinSession.getCurrent().setAttribute(Locale.class, currentLocale);
+        }
+        languageSelector.setValue(currentLocale);
+
+        languageSelector.addValueChangeListener(event -> {
+            VaadinSession.getCurrent().setAttribute(Locale.class, event.getValue());
+            UI.getCurrent().getPage().reload(); // Päivitä näkymä uudella kielellä
+        });
+
+        // Yläpalkki kielivalitsimelle
+        HorizontalLayout topBar = new HorizontalLayout(languageSelector);
+        topBar.setWidthFull();
+        topBar.setPadding(true);
+        topBar.setJustifyContentMode(JustifyContentMode.END); // Oikealle
+        add(topBar); // Lisää yläpalkki näkymään
+
+        // Haetaan nykyinen kieli sessiosta
+        Locale currentSessionLocale = VaadinSession.getCurrent().getAttribute(Locale.class);
+
+        // Päivitetään selaimen sivun otsikko lokalisoidusti
+        UI.getCurrent().getPage().setTitle(getTranslation("page.title.home", currentSessionLocale));
+
+        // Keskialue
         VerticalLayout content = new VerticalLayout();
         content.setWidthFull();
         content.setDefaultHorizontalComponentAlignment(Alignment.CENTER);
-        content.add(new H1("Tervetuloa harjoitustyöhön!"));
-        content.add(new Paragraph("Valitse navigaatiosta toiminto."));
-        content.setSizeFull(); // Täyttää tilan niin että footer menee alas
+
+        content.add(new H1(getTranslation("greeting", currentSessionLocale)));
+        content.add(new Paragraph(getTranslation("instruction", currentSessionLocale)));
+        content.setSizeFull();
 
         // Footer
         HorizontalLayout footer = new HorizontalLayout(new Paragraph("© 2025 Harjoitustyo Oy"));
@@ -36,8 +73,5 @@ public class EtusivuView extends VerticalLayout {
 
         add(content, footer);
         expand(content);
-
-
-
     }
 }
